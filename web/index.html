@@ -90,7 +90,9 @@ function rowHtml(n) {
   else if (n.residential === "datacenter") badge = '<span class="badge b-dc">机房</span>';
   else badge = '<span class="badge b-unk">未知</span>';
   const exit = n.exit ? ((n.exit.ip || "?") + " · " + (n.exit.org || n.exit.country || "")) : "-";
-  const date = (n.checked_at || "").split(" ")[0];
+  
+  const date = (n.checked_at || "").split(" ")[0,16];
+  #const date = (n.checked_at || "").split(" ")[0];
   return '<tr>' +
     '<td><code title="点击复制 sstp 链接">' + n.host + ':' + n.port + '</code></td>' +
     '<td class="hide-m">' + (n.country_code || "") + '</td>' +
