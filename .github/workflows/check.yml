@@ -34,7 +34,7 @@ jobs:
         run: python gate.py
         env:
           CHECK_WORKER: "https://check5.18723814.xyz/check?sstp=vpn:vpn@"
-          CHECK_CONCURRENCY: "2"
+          CHECK_CONCURRENCY: "12"
           CHECK_TIMEOUT: "90"
 
       - name: Configure Pages
