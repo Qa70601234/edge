@@ -407,7 +407,8 @@ def build_outputs(results, raw_count, sstp_count, source):
         by_country[name] = grp
 
     data = {
-        "generated_at": datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S UTC"),
+        "generated_at": datetime.now(ZoneInfo("Asia/Shanghai")).strftime("%Y-%m-%d %H:%M:%S CST"),
+        #"generated_at": datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S UTC"),
         "source": source,
         "worker": WORKER_CHECK_URL,
         "stats": stats,
