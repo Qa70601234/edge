@@ -21,6 +21,7 @@ import sys
 import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timezone
+from zoneinfo import ZoneInfo
 from urllib.parse import quote
 
 import requests
@@ -327,7 +328,9 @@ def check_one(node, session):
     out["protocol"] = "sstp"
     out["link"] = f"sstp://vpn:vpn@{node['host']}:{node['port']}"
     out["status"] = "failed"
-    out["checked_at"] = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
+    bj_tz = ZoneInfo("Asia/Shanghai")
+    out["checked_at"] = datetime.now(bj_tz).strftime("%Y-%m-%d %H:%M CST")
+    #out["checked_at"] = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
     out["exit"] = None
     out["residential"] = "unknown"
     try:
